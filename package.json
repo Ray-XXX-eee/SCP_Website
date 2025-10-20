@@ -1,22 +1,27 @@
 {
-  "name": "roundex-portfolio",
+  "name": "srees-photography",
+  "version": "0.1.0",
   "private": true,
-  "version": "1.0.0",
+  "homepage": "https://Ray-XXX-eee.github.io/SCP_Website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "framer-motion": "^10.16.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "react-router-dom": "^6.22.0",
+    "react-scroll": "^1.9.3",
     "swiper": "^11.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.0.4",
     "autoprefixer": "^10.4.15",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.29",
     "tailwindcss": "^3.4.0",
     "vite": "^5.1.0"

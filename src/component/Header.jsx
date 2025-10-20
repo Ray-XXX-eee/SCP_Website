@@ -44,20 +44,7 @@ const Header = () => {
               />
             </Link>
 
-            {/* Desktop Navigation - Right
-            <nav className="hidden md:flex space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`text-sm font-medium transition-colors hover:text-gray-400 ${
-                    location.pathname === item.path ? 'text-white font-semibold' : 'text-gray-300'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav> */}
+            
 
             {/* Mobile Menu Button - Right */}
             <button
