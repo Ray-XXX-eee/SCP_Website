@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // ← import this
+import img1 from '/assets/home_1.jpeg' 
 
 export default function PhotographyLanding() {
   const navigate = useNavigate(); // ← initialize navigation
@@ -11,7 +12,7 @@ export default function PhotographyLanding() {
         {/* Left Side - Content */}
         <div className="text-white space-y-8 px-8">
           <h1 className="text-5xl md:text-6xl font-bold tracking-wide" style={{fontFamily: 'Georgia, serif'}}>
-            SREE'S PHOTOGRAPHY
+            
           </h1>
           
           <div className="space-y-3 text-gray-300 text-lg italic leading-relaxed" style={{fontFamily: 'Georgia, serif'}}>
@@ -45,7 +46,9 @@ export default function PhotographyLanding() {
         <div className="relative md:translate-x-12 lg:translate-x-24">
           <div className="bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg overflow-hidden shadow-2xl aspect-[3/4]">
             <img 
-              src="/assets/home_1.jpeg" 
+            
+              src={img1} 
+            //   "/assets/home_1.jpeg" 
               alt="Photography" 
               className="w-full h-full object-cover"
             />

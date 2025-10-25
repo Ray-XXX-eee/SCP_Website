@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import CircularNav from './CircularNav';
 
+import logo from '/assets/logo_1.jpg';
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -38,7 +40,7 @@ const Header = () => {
             {/* Logo - Left */}
             <Link to="/home" className="flex-shrink-0">
               <img
-                src="/assets/logo_1.jpg"
+                src={logo}
                 alt="Logo"
                 className="h-16 w-auto object-contain"
               />

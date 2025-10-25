@@ -2,6 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom'; // use react-router-dom Link
 
+import homeImage1 from '/assets/home_1.jpeg';
+import homeImage2 from '/assets/home_2.jpeg';
+import homeImage3 from '/assets/home_3.jpeg';
+import homeImage4 from '/assets/home_4.jpeg';
+import homeImage5 from '/assets/home_5.jpeg';
+import homeImage6 from '/assets/home_6.jpeg';
+import homeVideo1 from '/assets/home_video_1.mp4';
+
+
+
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -9,9 +20,13 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const slides = [
-    { title: 'SIMPLICITY', subtitle: 'IS COMPLEX', image: '/assets/home_1.jpeg', cta: 'VIEW PROJECT' },
-    { title: 'DESIGN IS', subtitle: 'A PROCESS', image: '/assets/home_2.jpeg', cta: 'VIEW PROJECT' },
-    { title: 'AESTHETIC IS', subtitle: 'A DECISION', image: '/assets/home_3.jpeg', cta: 'VIEW PROJECT' },
+    { title: 'SIMPLICITY', subtitle: 'IS COMPLEX', image: homeImage1, cta: 'VIEW PROJECT' },
+    { title: 'DESIGN IS', subtitle: 'A PROCESS', image: homeImage2, cta: 'VIEW PROJECT' },
+    { title: 'AESTHETIC IS', subtitle: 'A DECISION', image: homeImage3, cta: 'VIEW PROJECT' },
+    { title: 'BRAND WORK', subtitle: 'THAT STUNNES YOU', video: homeVideo1, cta: 'VIEW PROJECT' },
+    { title: 'WORKSHOPS', subtitle: 'THAT YOU ENJOY', image: homeImage5, cta: 'VIEW PROJECT' },
+    { title: 'NEWS', subtitle: 'THAT MAKES YOU HAPPY', image: homeImage6, cta: 'VIEW PROJECT' },
+    { title: 'BACK-BONE IS...', subtitle: 'PEOPLE', image: homeImage4, cta: 'VIEW PROJECT' },
   ];
 
   useEffect(() => {
@@ -87,14 +102,27 @@ export default function Home() {
         }`}
       >
         {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src={slides[currentSlide].image}
-            alt="Menu Background"
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-black opacity-60"></div>
-        </div>
+        <div className="w-full h-full rounded-full overflow-hidden shadow-2xl">
+            {slides[currentSlide].video ? (
+                <video
+                key={slides[currentSlide].video}
+                src={slides[currentSlide].video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+                />
+            ) : (
+                <img
+                key={slides[currentSlide].image}
+                src={slides[currentSlide].image}
+                alt={slides[currentSlide].title}
+                className="w-full h-full object-cover"
+                />
+            )}
+            </div>
+
 
         {/* Center Container */}
         <div className="absolute inset-0 flex items-center justify-center">
@@ -173,7 +201,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Circular Image Container */}
+        {/* Circular Image/Video Container */}
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
           <motion.div
             key={currentSlide}
@@ -184,11 +212,24 @@ export default function Home() {
             style={{ width: 'clamp(300px, 40vw, 550px)', height: 'clamp(300px, 40vw, 550px)' }}
           >
             <div className="w-full h-full rounded-full overflow-hidden shadow-2xl">
-              <img 
-                src={slides[currentSlide].image}
-                alt="Portfolio"
-                className="w-full h-full object-cover"
-              />
+              {slides[currentSlide].video ? (
+                <video
+                  key={slides[currentSlide].video}
+                  src={slides[currentSlide].video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <img 
+                  key={slides[currentSlide].image}
+                  src={slides[currentSlide].image}
+                  alt="Portfolio"
+                  className="w-full h-full object-cover"
+                />
+              )}
             </div>
           </motion.div>
         </div>
@@ -255,6 +296,26 @@ export default function Home() {
           <div className="w-px h-16 bg-gradient-to-b from-transparent via-white to-transparent opacity-50"></div>
         </div>
       </div>
+
+    {/* Vertical Grid Lines */}
+      <div className="fixed inset-0 pointer-events-none z-10">
+        <div className="h-full w-full grid grid-cols-4">
+          <div className="border-r border-gray-800"></div>
+          <div className="border-r border-gray-800"></div>
+          <div className="border-r border-gray-800"></div>
+          <div></div>
+        </div>
+      </div>
+
+    {/* Horizontal Grid Lines */}
+        <div className="fixed inset-0 pointer-events-none z-10">
+        <div className="h-full w-full grid grid-rows-4">
+            <div className="border-b border-gray-800"></div>
+            <div className="border-b border-gray-800"></div>
+            <div className="border-b border-gray-800"></div>
+            <div></div>
+        </div>
+        </div>
     </div>
   );
 }
